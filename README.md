@@ -6,22 +6,23 @@
 
 Откройте терминал в корне проекта, где лежат `requirements.txt` и ноутбук. Команды ниже проверены в Bash с Python 3.12. Для раздела версионирования нужен Git.
 
-**1. Создайте окружение.** В папке `.venv` будут Python и библиотеки проекта.
+**1. Создайте и активируйте окружение.** Следующие команды выполните в том же терминале.
 
 ```bash
 python3.12 -m venv .venv
+source .venv/bin/activate
 ```
 
 **2. Установите зависимости.** В `requirements.txt` перечислены JupyterLab и библиотеки для всех шагов работы.
 
 ```bash
-.venv/bin/python -m pip install --no-cache-dir -r requirements.txt
+python -m pip install --no-cache-dir -r requirements.txt
 ```
 
-**3. Откройте ноутбук.** Одна команда активирует `.venv`, запускает JupyterLab и открывает в браузере [ноутбук](<Кот или собака.ipynb>).
+**3. Откройте ноутбук.** Запустите JupyterLab в активированном окружении. Команда откроет [ноутбук](<Кот или собака.ipynb>) в браузере.
 
 ```bash
-source .venv/bin/activate && python -m jupyterlab "Кот или собака.ipynb"
+python -m jupyterlab "Кот или собака.ipynb"
 ```
 
 Выполняйте ячейки сверху вниз. Первая ячейка удаляет рабочую папку `data/` вместе с локальной историей Git, черновиком разметки и результатами предыдущего прогона. Следующие ячейки собирают фотографии заново.
@@ -30,10 +31,11 @@ source .venv/bin/activate && python -m jupyterlab "Кот или собака.ip
 
 ## Повторный запуск
 
-В новом терминале откройте ту же папку и выполните команду запуска.
+В новом терминале откройте корень проекта, снова активируйте окружение и запустите ноутбук.
 
 ```bash
-source .venv/bin/activate && python -m jupyterlab "Кот или собака.ipynb"
+source .venv/bin/activate
+python -m jupyterlab "Кот или собака.ipynb"
 ```
 
 ## Данные
@@ -42,10 +44,11 @@ Git хранит историю файла `dataset.dvc` с тегами `datase
 
 ## Просмотр результатов в MLflow
 
-После обучения откройте отдельный терминал в корне проекта и запустите интерфейс. Он прочитает результаты из базы `data/training_mlflow.db`.
+После обучения откройте отдельный терминал в корне проекта, активируйте окружение и запустите MLflow. Он прочитает результаты из базы `data/training_mlflow.db`.
 
 ```bash
-source .venv/bin/activate && mlflow server --backend-store-uri sqlite:///data/training_mlflow.db
+source .venv/bin/activate
+mlflow server --backend-store-uri sqlite:///data/training_mlflow.db
 ```
 
 Откройте [MLflow](http://127.0.0.1:5000), выберите эксперимент `cats-dogs` и вставьте фильтр серии из ноутбука. После сравнения FP32 и INT8 замеры каждого раунда доступны в артефакте `inference/comparison.json` у запуска победителя. Чтобы остановить сервер, нажмите `Ctrl+C` в терминале.
