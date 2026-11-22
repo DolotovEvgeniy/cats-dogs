@@ -1,0 +1,11 @@
+**
+!requirements.txt
+!deployment/
+!deployment/Dockerfile
+!deployment/app/
+!deployment/app/main.py
+!deployment/app/index.html
+!deployment/app/bundle/
+!deployment/app/bundle/model.onnx
+!deployment/app/pixels.py
+!deployment/app/bundle/metadata.json

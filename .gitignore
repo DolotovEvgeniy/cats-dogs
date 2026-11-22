@@ -1,0 +1,14 @@
+.venv/
+.jupyter_runtime/
+.ipython/
+.ipynb_checkpoints/
+data/
+labels.json
+labels.draft.json
+mlflow.db
+mlflow.db-*
+mlruns/
+dvc_remote/
+__pycache__/
+annotation_backup/
+deployment/server.log

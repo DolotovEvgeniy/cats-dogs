@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><title>Кот или собака</title>
+<style>
+  body {font: 18px sans-serif; max-width: 620px; margin: 8vh auto; padding: 22px}
+  button {padding: 8px 14px} #result {font-weight: bold}
+</style>
+<h1>Кот или собака?</h1>
+<form id="form">
+  <input name='file' type='file' accept='image/*' required>
+  <button>Определить</button>
+</form>
+<p id="result" role="status"></p>
+<script>
+  document.getElementById("form").onsubmit = async event => {
+    event.preventDefault();
+    const result = document.getElementById("result");
+    result.textContent = "Обработка…";
+    try {
+      const response = await fetch("/predict", {method: "POST", body: new FormData(event.target)});
+      const data = await response.json();
+      result.textContent = response.ok ? "Класс: " + data.label : data.detail;
+    } catch {
+      result.textContent = "Сервер недоступен";
+    }
+  };
+</script>
+</html>

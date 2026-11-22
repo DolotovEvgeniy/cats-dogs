@@ -1,0 +1,13 @@
+{
+  "winner": "resnet18",
+  "variant": "INT8",
+  "mlflow_run_id": "ab151de196d6496c906df332ea87f652",
+  "classes": [
+    "cat",
+    "dog"
+  ],
+  "image_size": 96,
+  "dataset_snapshot": "2e24de6559fff7425cb802528423aae4.dir",
+  "checkpoint_sha256": "dc2a78ab0937bd1b937c56e80d7328a96e9241af54fe83ad958d8334e9099d4c",
+  "onnx_sha256": "c052f3fd05fbceaea03b0a954b857376b026c9f1378f9b708610994c98ccc0de"
+}
