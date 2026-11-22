@@ -82,3 +82,13 @@ docker run --rm --detach --name cats-dogs -p 127.0.0.1:8010:8000 cats-dogs:local
 ```bash
 docker stop cats-dogs
 ```
+
+### Примеры классификации в Docker
+
+**Кошка, класс `cat`**
+
+![Страница классификатора с фотографией кошек и результатом «Класс: cat»](docs/docker-cat.jpg)
+
+**Собака, класс `dog`**
+
+![Страница классификатора с фотографией собаки и результатом «Класс: dog»](docs/docker-dog.jpg)
