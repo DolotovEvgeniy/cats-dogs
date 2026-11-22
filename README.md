@@ -61,7 +61,7 @@ mlflow server --backend-store-uri sqlite:///data/training_mlflow.db
 
 ## Сборка и запуск сайта в Docker
 
-Выполните ноутбук до конца раздела «Экспорт в ONNX и квантизация». В `deployment/app/bundle/` появятся `model.onnx` и `metadata.json`. Для следующих команд нужен работающий Docker Engine. Запускайте их из корня проекта, где лежит `requirements.txt`.
+Готовая модель и её параметры лежат в `deployment/app/bundle/`. Чтобы обновить их после обучения, выполните ноутбук до конца раздела «Экспорт в ONNX и квантизация». Docker устанавливает зависимости приложения из `deployment/requirements.txt`. Команды ниже запускайте из корня проекта с работающим Docker Engine.
 
 **1. Соберите образ** по [Dockerfile](deployment/Dockerfile).
 
@@ -75,7 +75,7 @@ docker build -f deployment/Dockerfile -t cats-dogs:local .
 docker run --rm --detach --name cats-dogs -p 127.0.0.1:8010:8000 cats-dogs:local
 ```
 
-Откройте [форму загрузки](http://127.0.0.1:8010) и загрузите фотографию.
+Откройте [форму загрузки](http://127.0.0.1:8010), выберите фотографию и проверьте её на странице. Нажмите «Определить», чтобы получить класс.
 
 **3. Остановите контейнер** после проверки.
 

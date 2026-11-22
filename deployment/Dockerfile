@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 WORKDIR /srv
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
-COPY requirements.txt .
+COPY deployment/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY deployment/app/main.py deployment/app/index.html deployment/app/pixels.py app/
 COPY deployment/app/bundle/ app/bundle/

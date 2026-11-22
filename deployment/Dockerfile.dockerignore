@@ -1,6 +1,6 @@
 **
-!requirements.txt
 !deployment/
+!deployment/requirements.txt
 !deployment/Dockerfile
 !deployment/app/
 !deployment/app/main.py
